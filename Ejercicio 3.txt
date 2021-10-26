@@ -1,0 +1,111 @@
+public class Matrices_nulo {
+
+    public static void main(String[] args) {
+
+        Scanner obj = new Scanner(System.in);
+
+        System.out.println("inttroduce el numero de columnas");
+
+        int columnas= obj.nextInt();
+
+        System.out.println("introduce la cantidad de filas");
+
+        int filas=obj.nextInt();
+        
+         int[][] vector = new int[columnas][filas];
+
+         Matrices_nulo.rellena(vector, obj);
+
+         Matrices_nulo.impime(vector, columnas, filas);
+
+         System.out.println(Matrices_nulo.dime_si_es_nulo(vector));
+
+         System.out.println(Matrices_nulo.dime_si_es_identidad(vector)); 
+
+    }
+
+    public static void rellena (int [][]vector Scanner obj){
+
+        for (int i = 0; i < vector.length; i++) {
+
+             for (int j = 0; j < vector.length; j++) {
+
+                 vector[i][j]=obj.nextInt();
+
+             }
+
+        }
+
+    }
+
+    public static void impime(int[][] vector,int columnas, int filas){
+
+        System.out.println("la madriz es de "+columnas+"x"+filas);
+
+         for (int i = 0; i < vector.length; i++) {
+
+             for (int j = 0; j < vector.length; j++) {
+
+                 System.out.print("["+vector[i][j]+"]"); 
+
+             }
+
+             System.out.println("\t");
+
+        }
+
+    }
+
+
+    
+
+    public static String dime_si_es_identidad(int[][] vector){
+
+        int uno =0;
+
+        int cero =0;
+
+        for (int i = 0; i < vector.length; i++) {
+
+            for (int j = 0; j < vector.length; j++) {
+
+                if (i==j) {
+
+                    if (vector[i][j]!=1) {
+
+                        uno++;  
+
+                    }
+
+                }
+
+                if (i != j) {
+
+                    if (vector[i][j] != 0) {
+
+                        cero++;
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        if (uno==0 && cero==0) {
+
+            return "Es identidad";
+
+        }
+
+        else{
+
+            return "No es identidad";
+
+        }
+
+    }
+
+}
+     
